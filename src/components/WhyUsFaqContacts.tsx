@@ -14,34 +14,124 @@ export default function WhyUsFaqContacts() {
   return (
     <>
       {/* WHY US */}
-      <section className="relative py-28 md:py-36">
-        <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Ручная обработка камня" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/85" />
-        </div>
+      <section className="relative overflow-hidden py-28 md:py-36 bg-background">
+        {/* Декоративная сетка */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(hsl(40 38% 62%) 1px, transparent 1px), linear-gradient(90deg, hsl(40 38% 62%) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }} />
+        {/* Золотое свечение слева */}
+        <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-10"
+          style={{ background: 'radial-gradient(circle, hsl(40 38% 62%), transparent 70%)' }} />
+
         <div className="container relative z-10">
+
+          {/* Шапка секции */}
           <Reveal>
-            <div className="text-center mb-16 max-w-3xl mx-auto">
-              <span className="text-xs uppercase tracking-[0.35em] text-primary/80">Почему выбирают нас</span>
-              <h2 className="mt-4 text-3xl md:text-5xl font-display font-medium leading-tight">
-                Почему семьи доверяют нам изготовление памятников
-              </h2>
-              <p className="mt-6 text-muted-foreground leading-relaxed">
-                Мы понимаем, насколько важно сохранить память о близких достойно. Поэтому уделяем
-                внимание каждой детали — от выбора камня до установки готового изделия.
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+              <div className="max-w-2xl">
+                <span className="text-xs uppercase tracking-[0.35em] text-primary/80">Почему выбирают нас</span>
+                <h2 className="mt-4 text-4xl md:text-6xl font-display font-medium leading-[1.05]">
+                  Почему семьи<br className="hidden md:block" /> доверяют нам
+                </h2>
+              </div>
+              <p className="lg:max-w-sm text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-5">
+                Мы понимаем, насколько важно сохранить память о близких достойно. Поэтому уделяем внимание каждой детали — от выбора камня до установки готового изделия.
               </p>
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/40 border border-border/40">
-            {ADVANTAGES.map((a, i) => (
-              <Reveal key={a.title} delay={i * 70} className="bg-background/80 backdrop-blur-sm p-8">
-                <Icon name={a.icon} size={28} className="text-primary" />
-                <h3 className="mt-5 text-xl font-display">{a.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
-              </Reveal>
-            ))}
+          {/* Главный блок: крупное преимущество + сетка */}
+          <div className="grid lg:grid-cols-5 gap-5">
+
+            {/* Левая большая карточка */}
+            <Reveal className="lg:col-span-2">
+              <div className="relative h-full min-h-[320px] overflow-hidden border border-primary/30 bg-card group">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: 'radial-gradient(ellipse at 30% 50%, hsl(40 38% 62% / 0.08), transparent 70%)' }} />
+                <div className="relative z-10 p-10 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 mb-8">
+                      <Icon name="Factory" size={28} className="text-primary" />
+                    </div>
+                    <h3 className="text-3xl font-display font-medium leading-tight">Собственное<br />производство</h3>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      Полный цикл — от обработки камня до установки. Никаких посредников, наценок и потери в качестве.
+                    </p>
+                  </div>
+                  <div className="mt-10 pt-6 border-t border-border/60">
+                    <div className="flex gap-8">
+                      <div>
+                        <div className="font-display text-3xl text-gradient-gold">15+</div>
+                        <div className="text-xs text-muted-foreground mt-1">лет опыта</div>
+                      </div>
+                      <div>
+                        <div className="font-display text-3xl text-gradient-gold">1200+</div>
+                        <div className="text-xs text-muted-foreground mt-1">проектов</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Угловой акцент */}
+                <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/40" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/40" />
+              </div>
+            </Reveal>
+
+            {/* Правая сетка 2x2 + 1 широкая */}
+            <div className="lg:col-span-3 grid grid-cols-2 gap-5">
+              {ADVANTAGES.slice(1).map((a, i) => (
+                <Reveal
+                  key={a.title}
+                  delay={i * 80}
+                  className={i === 4 ? 'col-span-2' : ''}
+                >
+                  <div className={`relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden ${i === 4 ? 'flex items-center gap-8 p-7' : 'p-6'}`}>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(40 38% 62% / 0.06), transparent 60%)' }} />
+                    <div className={`relative z-10 ${i === 4 ? 'flex items-center gap-8 w-full' : ''}`}>
+                      <div className={`flex items-center justify-center shrink-0 border border-border/60 group-hover:border-primary/40 transition-colors ${i === 4 ? 'w-12 h-12' : 'w-10 h-10 mb-5'}`}>
+                        <Icon name={a.icon} size={i === 4 ? 22 : 18} className="text-primary" />
+                      </div>
+                      <div>
+                        <h3 className={`font-display ${i === 4 ? 'text-xl' : 'text-lg'} leading-snug`}>{a.title}</h3>
+                        <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                      </div>
+                    </div>
+                    {/* Номер-декор */}
+                    <div className={`absolute font-display text-[80px] font-bold leading-none text-foreground/[0.03] select-none pointer-events-none ${i === 4 ? 'right-6 top-1/2 -translate-y-1/2' : 'bottom-2 right-3'}`}>
+                      {String(i + 2).padStart(2, '0')}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
+
+          {/* Нижняя полоса с гарантией */}
+          <Reveal delay={200}>
+            <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-5 border border-primary/25 bg-card/60 px-8 py-5">
+              <div className="flex items-center gap-4">
+                <Icon name="ShieldCheck" size={28} className="text-primary shrink-0" />
+                <div>
+                  <div className="font-display text-lg">Письменная гарантия на всё</div>
+                  <div className="text-sm text-muted-foreground">Фиксируем условия в договоре — несём ответственность за каждый этап.</div>
+                </div>
+              </div>
+              <div className="shrink-0 flex items-center gap-6">
+                <div className="text-center">
+                  <div className="font-display text-3xl text-gradient-gold">98%</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">соблюдение сроков</div>
+                </div>
+                <div className="w-px h-10 bg-border/60" />
+                <div className="text-center">
+                  <div className="font-display text-3xl text-gradient-gold">10 лет</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">гарантия на изделие</div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
