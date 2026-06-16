@@ -4,7 +4,7 @@ export const HERO_IMG =
   'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/8c734cbf-83c2-4e28-b544-b1deeaa8d7e6.jpg';
 
 export const LOGO_URL =
-  'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/f6ab75ed-98d0-4ec9-8365-1ff079a551a3.png';
+  'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/f2b6f992-bca9-4259-8ca9-d19d9c0cb793.png';
 
 export const NAV = [
   { label: 'Главная', href: '#hero' },
