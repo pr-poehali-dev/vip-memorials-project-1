@@ -79,27 +79,27 @@ export default function WhyUsFaqContacts() {
             </Reveal>
 
             {/* Правая сетка 2x2 + 1 широкая */}
-            <div className="lg:col-span-3 grid grid-cols-2 gap-5">
+            <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
               {ADVANTAGES.slice(1).map((a, i) => (
                 <Reveal
                   key={a.title}
                   delay={i * 80}
-                  className={i === 4 ? 'col-span-2' : ''}
+                  className={i === 4 ? 'sm:col-span-2' : ''}
                 >
-                  <div className={`relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden ${i === 4 ? 'flex items-center gap-8 p-7' : 'p-6'}`}>
+                  <div className={`relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden p-6`}>
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(40 38% 62% / 0.06), transparent 60%)' }} />
-                    <div className={`relative z-10 ${i === 4 ? 'flex items-center gap-8 w-full' : ''}`}>
-                      <div className={`flex items-center justify-center shrink-0 border border-border/60 group-hover:border-primary/40 transition-colors ${i === 4 ? 'w-12 h-12' : 'w-10 h-10 mb-5'}`}>
-                        <Icon name={a.icon} size={i === 4 ? 22 : 18} className="text-primary" />
+                    <div className={`relative z-10 ${i === 4 ? 'sm:flex sm:items-center sm:gap-6' : ''}`}>
+                      <div className="flex items-center justify-center shrink-0 w-10 h-10 mb-5 sm:mb-0 border border-border/60 group-hover:border-primary/40 transition-colors">
+                        <Icon name={a.icon} size={18} className="text-primary" />
                       </div>
-                      <div>
-                        <h3 className={`font-display ${i === 4 ? 'text-xl' : 'text-lg'} leading-snug`}>{a.title}</h3>
-                        <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                      <div className={i === 4 ? 'sm:ml-0 mt-0' : 'mt-0'}>
+                        <h3 className="font-display text-lg leading-snug mt-0">{a.title}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
                       </div>
                     </div>
                     {/* Номер-декор */}
-                    <div className={`absolute font-display text-[80px] font-bold leading-none text-foreground/[0.03] select-none pointer-events-none ${i === 4 ? 'right-6 top-1/2 -translate-y-1/2' : 'bottom-2 right-3'}`}>
+                    <div className="absolute bottom-2 right-3 font-display text-[72px] font-bold leading-none text-foreground/[0.03] select-none pointer-events-none">
                       {String(i + 2).padStart(2, '0')}
                     </div>
                   </div>
@@ -136,20 +136,76 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* STAGES */}
-      <section id="stages" className="py-24 md:py-32">
+      <section id="stages" className="py-24 md:py-32 bg-card/30 overflow-hidden">
         <div className="container">
           <Reveal>
             <SectionTitle kicker="Этапы работы" title="Прозрачный процесс от заявки до монтажа" />
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/40 border border-border/40">
-            {STAGES.map((s, i) => (
-              <Reveal key={s.n} delay={i * 70} className="bg-card p-8 group hover:bg-secondary/60 transition-colors duration-500">
-                <span className="font-display text-5xl text-primary/30 group-hover:text-primary/70 transition-colors">{s.n}</span>
-                <h3 className="mt-4 text-xl font-display">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.text}</p>
-              </Reveal>
-            ))}
+
+          {/* Таймлайн — десктоп */}
+          <div className="hidden lg:block relative">
+            {/* Соединительная линия */}
+            <div className="absolute top-9 left-0 right-0 h-px bg-border/60 z-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            </div>
+
+            <div className="relative z-10 grid grid-cols-6 gap-0">
+              {STAGES.map((s, i) => (
+                <Reveal key={s.n} delay={i * 90}>
+                  <div className="group flex flex-col items-center text-center px-3">
+                    {/* Точка таймлайна */}
+                    <div className="relative flex items-center justify-center w-[72px] h-[72px] shrink-0">
+                      <div className="absolute inset-0 border border-border/60 group-hover:border-primary/60 transition-colors duration-500 rotate-45" />
+                      <span className="font-display text-xl text-gradient-gold">{s.n}</span>
+                    </div>
+                    {/* Вертикальный коннектор */}
+                    <div className="w-px h-8 bg-border/40 mt-1" />
+                    {/* Контент */}
+                    <div className="mt-1">
+                      <h3 className="font-display text-lg leading-snug">{s.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
+
+          {/* Таймлайн — мобайл/планшет */}
+          <div className="lg:hidden relative pl-10">
+            {/* Вертикальная линия */}
+            <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent" />
+
+            <div className="space-y-0">
+              {STAGES.map((s, i) => (
+                <Reveal key={s.n} delay={i * 80}>
+                  <div className="group relative flex gap-6 pb-10 last:pb-0">
+                    {/* Точка */}
+                    <div className="absolute -left-10 flex items-center justify-center w-8 h-8 shrink-0 mt-1">
+                      <div className="absolute inset-0 border border-border/60 group-hover:border-primary/60 transition-colors rotate-45" />
+                      <span className="font-display text-xs text-primary">{s.n}</span>
+                    </div>
+                    {/* Контент */}
+                    <div className="border border-border/60 group-hover:border-primary/30 bg-card transition-colors duration-500 p-5 w-full">
+                      <h3 className="font-display text-lg">{s.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA под этапами */}
+          <Reveal delay={200}>
+            <div className="mt-16 text-center">
+              <p className="text-muted-foreground mb-5">Готовы начать? Оставьте заявку — пройдём этот путь вместе</p>
+              <a href="#contacts" className="inline-flex items-center gap-2 border border-primary/60 hover:bg-primary hover:text-primary-foreground text-foreground px-8 py-3 transition-colors duration-300 font-sans text-sm">
+                <Icon name="ArrowDown" size={16} />
+                Получить консультацию
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
