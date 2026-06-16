@@ -37,8 +37,20 @@ const STATS = [
   { value: '10', suffix: ' лет', label: 'гарантия на изделия' },
 ];
 
-const GRANITE = ['Прямые', 'Резные', 'Двойные', 'Мемориальные комплексы', 'Комбинированные'];
-const MARBLE = ['Классические', 'Фигурные', 'Православные', 'Семейные', 'Мемориальные комплексы'];
+const GRANITE = [
+  { title: 'Прямые', desc: 'Лаконичная вертикальная форма из чёрного гранита.', price: 'от 18 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4c279ef4-499e-44b7-bbb7-174cea7f9ed5.jpg' },
+  { title: 'Резные', desc: 'Художественная резьба и объёмные орнаменты.', price: 'от 32 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/b364e454-01cf-47ee-8e65-97457f8bcd7d.jpg' },
+  { title: 'Двойные', desc: 'Памятник на двоих с общей композицией.', price: 'от 45 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/da49c1db-4873-469c-9f96-1a0fb5bb7269.jpg' },
+  { title: 'Мемориальные комплексы', desc: 'Памятник, плитка, ограда и благоустройство.', price: 'от 90 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/1af36c38-a321-491a-a8e6-2f0c83b9e6d7.jpg' },
+  { title: 'Комбинированные', desc: 'Сочетание гранита и мрамора в одном изделии.', price: 'от 38 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3a7ab861-9a94-4f76-953a-af842764c930.jpg' },
+];
+const MARBLE = [
+  { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4b2fc908-8949-42ed-ab06-1ac086abcf43.jpg' },
+  { title: 'Фигурные', desc: 'Плавные изгибы и индивидуальная форма.', price: 'от 36 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/7088d931-9e5f-4a76-b167-fe6a5bdf16b7.jpg' },
+  { title: 'Православные', desc: 'С резным крестом и религиозной символикой.', price: 'от 34 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/5cc2500b-8d21-40ab-aec3-04e2b59d241e.jpg' },
+  { title: 'Семейные', desc: 'Просторная композиция для нескольких имён.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/fe3ba14e-39c6-4c88-9b82-126a52467a43.jpg' },
+  { title: 'Мемориальные комплексы', desc: 'Полное благоустройство участка в мраморе.', price: 'от 95 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/ca7f74fe-37f4-4062-b427-729d08577cd1.jpg' },
+];
 
 const STONES = [
   { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек' },
@@ -244,30 +256,47 @@ export default function Index() {
             <SectionTitle kicker="Каталог продукции" title="Памятники, созданные с уважением к деталям" />
           </Reveal>
 
-          <div className="grid lg:grid-cols-2 gap-px bg-border/40 border border-border/40">
-            {[
-              { title: 'Памятники из гранита', items: GRANITE, icon: 'Mountain' },
-              { title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles' },
-            ].map((cat, i) => (
-              <Reveal key={cat.title} delay={i * 120} className="bg-card p-8 md:p-12">
+          {[
+            { title: 'Памятники из гранита', items: GRANITE, icon: 'Mountain' },
+            { title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles' },
+          ].map((cat, ci) => (
+            <div key={cat.title} className={ci === 1 ? 'mt-20' : ''}>
+              <Reveal>
                 <div className="flex items-center gap-3 mb-8">
                   <Icon name={cat.icon} size={26} className="text-primary" />
                   <h3 className="text-2xl md:text-3xl font-display font-medium">{cat.title}</h3>
                 </div>
-                <ul className="space-y-px">
-                  {cat.items.map((item) => (
-                    <li key={item} className="group flex items-center justify-between py-4 border-b border-border/50">
-                      <span className="text-foreground/90 group-hover:text-primary transition-colors">{item}</span>
-                      <button className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                        Узнать стоимость
-                        <Icon name="ArrowRight" size={15} />
-                      </button>
-                    </li>
-                  ))}
-                </ul>
               </Reveal>
-            ))}
-          </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+                {cat.items.map((item, i) => (
+                  <Reveal key={item.title} delay={i * 70}>
+                    <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
+                      <div className="relative aspect-[3/4] overflow-hidden">
+                        <img
+                          src={item.img}
+                          alt={`${cat.title} — ${item.title}`}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
+                          <h4 className="font-display text-xl text-foreground">{item.title}</h4>
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                            <div className="mt-3 text-primary font-medium">{item.price}</div>
+                            <button className="mt-4 inline-flex items-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2 transition-colors">
+                              Узнать цену
+                              <Icon name="ArrowRight" size={15} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
