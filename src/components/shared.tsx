@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 export const HERO_IMG =
   'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/8c734cbf-83c2-4e28-b544-b1deeaa8d7e6.jpg';
 
+export const LOGO_URL =
+  'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/f6ab75ed-98d0-4ec9-8365-1ff079a551a3.png';
+
 export const NAV = [
   { label: 'Главная', href: '#hero' },
   { label: 'Каталог', href: '#catalog' },
@@ -44,11 +47,11 @@ export const MARBLE = [
 ];
 
 export const STONES = [
-  { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек' },
-  { name: 'Дымовский гранит', desc: 'Тёмно-серый с тонким рисунком.', feat: 'Прочный, ровный тон' },
-  { name: 'Мансуровский гранит', desc: 'Светло-серый уральский камень.', feat: 'Долговечен, благородный оттенок' },
-  { name: 'Коелгинский мрамор', desc: 'Белоснежный мрамор премиум-класса.', feat: 'Тёплый, мягкий блеск' },
-  { name: 'Полевской мрамор', desc: 'Светлый мрамор с лёгкими прожилками.', feat: 'Изящная фактура' },
+  { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/6cb19852-cbb8-45be-833e-5a34e1d401c8.jpg' },
+  { name: 'Дымовский гранит', desc: 'Тёмно-серый с тонким рисунком.', feat: 'Прочный, ровный тон', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3b008337-de9b-472f-9029-34fd53b1c151.jpg' },
+  { name: 'Мансуровский гранит', desc: 'Светло-серый уральский камень.', feat: 'Долговечен, благородный оттенок', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/94038167-88b8-4f50-9bd6-2a8668f4caad.jpg' },
+  { name: 'Коелгинский мрамор', desc: 'Белоснежный мрамор премиум-класса.', feat: 'Тёплый, мягкий блеск', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/1c904ac1-fac1-4d56-bd76-4a8e26921555.jpg' },
+  { name: 'Полевской мрамор', desc: 'Светлый мрамор с лёгкими прожилками.', feat: 'Изящная фактура', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/cd62fe2d-b6ba-429d-852d-9ce680b27070.jpg' },
 ];
 
 export const ADVANTAGES = [

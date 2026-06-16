@@ -117,8 +117,8 @@ export default function HeroCatalog() {
             {STONES.map((st, i) => (
               <Reveal key={st.name} delay={i * 80}>
                 <div className="h-full bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500 group">
-                  <div className="aspect-[4/3] overflow-hidden bg-secondary flex items-center justify-center">
-                    <Icon name="Gem" size={40} className="text-muted-foreground/40 group-hover:text-primary/60 transition-colors" />
+                  <div className="aspect-[4/3] overflow-hidden bg-secondary">
+                    <img src={st.img} alt={st.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
                     <h3 className="font-display text-xl">{st.name}</h3>

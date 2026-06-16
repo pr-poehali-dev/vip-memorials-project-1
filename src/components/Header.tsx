@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
-import { NAV } from '@/components/shared';
+import { NAV, LOGO_URL } from '@/components/shared';
+
 
 interface HeaderProps {
   scrolled: boolean;
@@ -18,9 +19,8 @@ export default function Header({ scrolled }: HeaderProps) {
         }`}
       >
         <div className="container flex items-center justify-between">
-          <a href="#hero" className="flex items-center gap-2">
-            <Icon name="Gem" size={22} className="text-primary" />
-            <span className="font-display text-xl tracking-wide">VIP <span className="text-primary">памятники</span></span>
+          <a href="#hero" className="flex items-center">
+            <img src={LOGO_URL} alt="VIP памятники" className="h-12 w-auto" />
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">

@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Reveal, SectionTitle, HERO_IMG, ADVANTAGES, STAGES, FAQ, NAV, SOCIALS } from '@/components/shared';
+import { Reveal, SectionTitle, HERO_IMG, ADVANTAGES, STAGES, FAQ, NAV, SOCIALS, LOGO_URL } from '@/components/shared';
 
 export default function WhyUsFaqContacts() {
   return (
@@ -143,9 +143,8 @@ export default function WhyUsFaqContacts() {
         <div className="container py-16">
           <div className="grid md:grid-cols-4 gap-10">
             <div>
-              <a href="#hero" className="flex items-center gap-2">
-                <Icon name="Gem" size={20} className="text-primary" />
-                <span className="font-display text-lg">VIP <span className="text-primary">памятники</span></span>
+              <a href="#hero" className="flex items-center">
+                <img src={LOGO_URL} alt="VIP памятники" className="h-16 w-auto" />
               </a>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 Изготовление памятников из натурального камня с доставкой и установкой под ключ.
