@@ -63,9 +63,9 @@ export default function HeroCatalog() {
       </section>
 
       {/* CATALOG */}
-      <section id="catalog" className="py-24 md:py-32">
+      <section id="catalog" className="py-24 md:py-32 section-fade-top">
         <div className="container">
-          <Reveal>
+          <Reveal variant="up">
             <SectionTitle kicker="Каталог продукции" title="Памятники, созданные с уважением к деталям" />
           </Reveal>
 
@@ -74,7 +74,7 @@ export default function HeroCatalog() {
             { title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles' },
           ].map((cat, ci) => (
             <div key={cat.title} className={ci === 1 ? 'mt-20' : ''}>
-              <Reveal>
+              <Reveal variant="left">
                 <div className="flex items-center gap-3 mb-8">
                   <Icon name={cat.icon} size={26} className="text-primary" />
                   <h3 className="text-2xl md:text-3xl font-display font-medium">{cat.title}</h3>
@@ -82,7 +82,7 @@ export default function HeroCatalog() {
               </Reveal>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {cat.items.map((item, i) => (
-                  <Reveal key={item.title} delay={i * 70}>
+                  <Reveal key={item.title} delay={i * 90} variant="scale">
                     <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
                       <div className="relative aspect-[3/4] overflow-hidden">
                         <img
@@ -114,14 +114,14 @@ export default function HeroCatalog() {
       </section>
 
       {/* STONE TYPES */}
-      <section id="stone" className="py-24 md:py-32 bg-card/40">
+      <section id="stone" className="py-24 md:py-32 bg-card/40 section-vignette">
         <div className="container">
-          <Reveal>
+          <Reveal variant="up">
             <SectionTitle kicker="Виды камня" title="Натуральный материал из лучших карьеров" />
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {STONES.map((st, i) => (
-              <Reveal key={st.name} delay={i * 80}>
+              <Reveal key={st.name} delay={i * 100} variant="scale">
                 <div className="h-full bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500 group">
                   <div className="aspect-[4/3] overflow-hidden bg-secondary">
                     <img src={st.img} alt={st.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

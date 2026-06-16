@@ -42,7 +42,7 @@ export const MARBLE = [
   { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4b2fc908-8949-42ed-ab06-1ac086abcf43.jpg' },
   { title: 'Фигурные', desc: 'Плавные изгибы и индивидуальная форма.', price: 'от 36 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/7088d931-9e5f-4a76-b167-fe6a5bdf16b7.jpg' },
   { title: 'Православные', desc: 'С резным крестом и религиозной символикой.', price: 'от 34 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/5cc2500b-8d21-40ab-aec3-04e2b59d241e.jpg' },
-  { title: 'Семейные', desc: 'Просторная композиция для нескольких имён.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/fe3ba14e-39c6-4c88-9b82-126a52467a43.jpg' },
+  { title: 'Семейные', desc: 'Просторная композиция для нескольких имён.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/a937ca6a-1693-462c-b799-e0747214b6df.jpg' },
   { title: 'Мемориальные комплексы', desc: 'Полное благоустройство участка в мраморе.', price: 'от 95 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/ca7f74fe-37f4-4062-b427-729d08577cd1.jpg' },
 ];
 
@@ -93,9 +93,22 @@ export const SOCIALS = [
   { icon: 'AtSign', label: 'ВКонтакте' },
 ];
 
-export function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+type RevealVariant = 'up' | 'left' | 'right' | 'scale';
+
+export function Reveal({
+  children,
+  className = '',
+  delay = 0,
+  variant = 'up',
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  variant?: RevealVariant;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [seen, setSeen] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -106,16 +119,38 @@ export function Reveal({ children, className = '', delay = 0 }: { children: Reac
           io.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  const hiddenStyle: React.CSSProperties = seen
+    ? {}
+    : {
+        opacity: 0,
+        transform:
+          variant === 'up' ? 'translateY(36px)' :
+          variant === 'left' ? 'translateX(-32px)' :
+          variant === 'right' ? 'translateX(32px)' :
+          'scale(0.94)',
+      };
+
+  const visibleStyle: React.CSSProperties = seen
+    ? {
+        opacity: 1,
+        transform: 'none',
+        transition: `opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
+      }
+    : {
+        transition: 'none',
+      };
+
   return (
     <div
       ref={ref}
-      className={`${className} ${seen ? 'anim-in' : 'anim-hidden'}`}
-      style={{ animationDelay: `${delay}ms` }}
+      className={className}
+      style={{ ...hiddenStyle, ...visibleStyle }}
     >
       {children}
     </div>

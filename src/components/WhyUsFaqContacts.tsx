@@ -14,7 +14,7 @@ export default function WhyUsFaqContacts() {
   return (
     <>
       {/* WHY US */}
-      <section className="relative overflow-hidden py-28 md:py-36 bg-background">
+      <section className="relative overflow-hidden py-28 md:py-36 bg-background section-vignette">
         {/* Текстура тёмного мрамора */}
         <div className="absolute inset-0">
           <img
@@ -32,7 +32,7 @@ export default function WhyUsFaqContacts() {
         <div className="container relative z-10">
 
           {/* Шапка секции */}
-          <Reveal>
+          <Reveal variant="up">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
               <div className="max-w-2xl">
                 <span className="text-xs uppercase tracking-[0.35em] text-primary/80">Почему выбирают нас</span>
@@ -50,7 +50,7 @@ export default function WhyUsFaqContacts() {
           <div className="grid lg:grid-cols-5 gap-5">
 
             {/* Левая большая карточка */}
-            <Reveal className="lg:col-span-2">
+            <Reveal className="lg:col-span-2" variant="left">
               <div className="relative h-full min-h-[320px] overflow-hidden border border-primary/30 bg-card group">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                   style={{ background: 'radial-gradient(ellipse at 30% 50%, hsl(40 38% 62% / 0.08), transparent 70%)' }} />
@@ -88,7 +88,8 @@ export default function WhyUsFaqContacts() {
               {ADVANTAGES.slice(1).map((a, i) => (
                 <Reveal
                   key={a.title}
-                  delay={i * 80}
+                  delay={i * 100}
+                  variant={i % 2 === 0 ? 'left' : 'right'}
                   className={i === 4 ? 'sm:col-span-2' : ''}
                 >
                   <div className={`relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden p-6`}>
@@ -141,9 +142,9 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* STAGES */}
-      <section id="stages" className="py-24 md:py-32 bg-card/30 overflow-hidden">
+      <section id="stages" className="py-24 md:py-32 bg-card/30 overflow-hidden section-vignette">
         <div className="container">
-          <Reveal>
+          <Reveal variant="up">
             <SectionTitle kicker="Этапы работы" title="Прозрачный процесс от заявки до монтажа" />
           </Reveal>
 
@@ -156,7 +157,7 @@ export default function WhyUsFaqContacts() {
 
             <div className="relative z-10 grid grid-cols-6 gap-0">
               {STAGES.map((s, i) => (
-                <Reveal key={s.n} delay={i * 90}>
+                <Reveal key={s.n} delay={i * 110} variant="up">
                   <div className="group flex flex-col items-center text-center px-3">
                     {/* Точка таймлайна */}
                     <div className="relative flex items-center justify-center w-[72px] h-[72px] shrink-0">
@@ -183,7 +184,7 @@ export default function WhyUsFaqContacts() {
 
             <div className="space-y-0">
               {STAGES.map((s, i) => (
-                <Reveal key={s.n} delay={i * 80}>
+                <Reveal key={s.n} delay={i * 90} variant="left">
                   <div className="group relative flex gap-6 pb-10 last:pb-0">
                     {/* Точка */}
                     <div className="absolute -left-10 flex items-center justify-center w-8 h-8 shrink-0 mt-1">
@@ -202,7 +203,7 @@ export default function WhyUsFaqContacts() {
           </div>
 
           {/* CTA под этапами */}
-          <Reveal delay={200}>
+          <Reveal delay={200} variant="up">
             <div className="mt-16 text-center">
               <p className="text-muted-foreground mb-5">Готовы начать? Оставьте заявку — пройдём этот путь вместе</p>
               <a href="#contacts" className="inline-flex items-center gap-2 border border-primary/60 hover:bg-primary hover:text-primary-foreground text-foreground px-8 py-3 transition-colors duration-300 font-sans text-sm">
@@ -215,15 +216,15 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 md:py-32 bg-card/40">
+      <section id="faq" className="py-24 md:py-32 bg-card/40 section-fade-top">
         <div className="container max-w-3xl">
-          <Reveal>
+          <Reveal variant="up">
             <SectionTitle kicker="Вопрос — ответ" title="Отвечаем на частые вопросы" />
           </Reveal>
-          <Reveal>
-            <Accordion type="single" collapsible className="space-y-3">
-              {FAQ.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border border-border/60 bg-card px-5 rounded-none">
+          <Accordion type="single" collapsible className="space-y-3">
+            {FAQ.map((f, i) => (
+              <Reveal key={i} delay={i * 60} variant="up">
+                <AccordionItem value={`item-${i}`} className="border border-border/60 bg-card px-5 rounded-none">
                   <AccordionTrigger className="text-left font-sans text-base hover:text-primary hover:no-underline py-5">
                     {f.q}
                   </AccordionTrigger>
@@ -231,20 +232,20 @@ export default function WhyUsFaqContacts() {
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
-              ))}
-            </Accordion>
-          </Reveal>
+              </Reveal>
+            ))}
+          </Accordion>
         </div>
       </section>
 
       {/* CONTACTS */}
-      <section id="contacts" className="py-24 md:py-32">
+      <section id="contacts" className="py-24 md:py-32 section-fade-top">
         <div className="container">
-          <Reveal>
+          <Reveal variant="up">
             <SectionTitle kicker="Контакты" title="Свяжитесь с нами для консультации" />
           </Reveal>
           <div className="grid lg:grid-cols-2 gap-px bg-border/40 border border-border/40">
-            <Reveal className="bg-card p-8 md:p-10">
+            <Reveal variant="left" className="bg-card p-8 md:p-10">
               <div className="space-y-7">
                 {[
                   { icon: 'MapPin', label: 'Адрес', value: '—' },
@@ -271,7 +272,7 @@ export default function WhyUsFaqContacts() {
               </div>
             </Reveal>
 
-            <Reveal delay={120} className="bg-card p-8 md:p-10">
+            <Reveal delay={150} variant="right" className="bg-card p-8 md:p-10">
               <h3 className="text-2xl font-display mb-6">Получить консультацию</h3>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <Input placeholder="Имя" className="bg-secondary border-border/60 rounded-none h-12" />

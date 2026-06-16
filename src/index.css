@@ -131,4 +131,60 @@
   .hairline {
     @apply border-t border-border/60;
   }
+
+  /* Плавные переходы между секциями */
+  .section-fade-top {
+    position: relative;
+  }
+  .section-fade-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, hsl(var(--background)), transparent);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .section-fade-bottom {
+    position: relative;
+  }
+  .section-fade-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, hsl(var(--background)), transparent);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .section-vignette {
+    position: relative;
+  }
+  .section-vignette::before,
+  .section-vignette::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .section-vignette::before {
+    top: 0;
+    background: linear-gradient(to bottom, hsl(var(--background)), transparent);
+  }
+  .section-vignette::after {
+    bottom: 0;
+    background: linear-gradient(to top, hsl(var(--background)), transparent);
+  }
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
 }
