@@ -15,11 +15,16 @@ export default function WhyUsFaqContacts() {
     <>
       {/* WHY US */}
       <section className="relative overflow-hidden py-28 md:py-36 bg-background">
-        {/* Декоративная сетка */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'linear-gradient(hsl(40 38% 62%) 1px, transparent 1px), linear-gradient(90deg, hsl(40 38% 62%) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }} />
+        {/* Текстура тёмного мрамора */}
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/9733a1ec-8fec-4548-bc63-590bc0902052.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover opacity-[0.12]"
+          />
+          <div className="absolute inset-0 bg-background/60" />
+        </div>
         {/* Золотое свечение слева */}
         <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, hsl(40 38% 62%), transparent 70%)' }} />

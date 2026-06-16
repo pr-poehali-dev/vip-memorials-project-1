@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, MARBLE, STONES } from '@/components/shared';
+import ConsultModal from '@/components/ConsultModal';
 
 export default function HeroCatalog() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
+      <ConsultModal open={modalOpen} onClose={() => setModalOpen(false)} />
+
       {/* HERO */}
       <section id="hero" className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
@@ -36,7 +42,7 @@ export default function HeroCatalog() {
             </div>
 
             <div className="animate-fade-in mt-10 flex flex-wrap gap-4" style={{ animationDelay: '0.45s' }}>
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 h-12">
+              <Button size="lg" onClick={() => setModalOpen(true)} className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 h-12">
                 Получить консультацию
               </Button>
               <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary rounded-none px-8 h-12" asChild>
