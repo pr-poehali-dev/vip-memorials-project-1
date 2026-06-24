@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Reveal, SectionTitle, HERO_IMG, ADVANTAGES, STAGES, FAQ, NAV, SOCIALS, LOGO_URL } from '@/components/shared';
+import ProductionGallery from '@/components/ProductionGallery';
 
 export default function WhyUsFaqContacts() {
   return (
@@ -46,72 +47,75 @@ export default function WhyUsFaqContacts() {
             </div>
           </Reveal>
 
-          {/* Главный блок: крупное преимущество + сетка */}
-          <div className="grid lg:grid-cols-5 gap-5">
+          {/* Блок: Собственное производство — на всю ширину */}
+          <Reveal variant="up" className="mb-5">
+            <div className="relative overflow-hidden border border-primary/30 bg-card">
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse at 20% 50%, hsl(40 38% 62% / 0.06), transparent 60%)' }} />
 
-            {/* Левая большая карточка */}
-            <Reveal className="lg:col-span-2" variant="left">
-              <div className="relative h-full min-h-[320px] overflow-hidden border border-primary/30 bg-card group">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  style={{ background: 'radial-gradient(ellipse at 30% 50%, hsl(40 38% 62% / 0.08), transparent 70%)' }} />
-                <div className="relative z-10 p-10 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 mb-8">
+              {/* Угловые акценты */}
+              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/40 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/40 pointer-events-none" />
+
+              <div className="relative z-10 p-8 md:p-10">
+                {/* Шапка карточки */}
+                <div className="flex flex-wrap items-start justify-between gap-6 mb-6">
+                  <div className="flex items-center gap-5">
+                    <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 shrink-0">
                       <Icon name="Factory" size={28} className="text-primary" />
                     </div>
-                    <h3 className="text-3xl font-display font-medium leading-tight">Собственное<br />производство</h3>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">
-                      Полный цикл — от обработки камня до установки. Никаких посредников, наценок и потери в качестве.
-                    </p>
+                    <div>
+                      <h3 className="text-3xl font-display font-medium leading-tight">Собственное производство</h3>
+                      <p className="mt-2 text-muted-foreground leading-relaxed max-w-xl">
+                        Полный цикл — от обработки камня до установки. Современные станки ЧПУ, гидроабразивная резка и лазерная гравировка. Никаких посредников и потери в качестве.
+                      </p>
+                    </div>
                   </div>
-                  <div className="mt-10 pt-6 border-t border-border/60">
-                    <div className="flex gap-8">
-                      <div>
-                        <div className="font-display text-3xl text-gradient-gold">15+</div>
-                        <div className="text-xs text-muted-foreground mt-1">лет опыта</div>
-                      </div>
-                      <div>
-                        <div className="font-display text-3xl text-gradient-gold">1200+</div>
-                        <div className="text-xs text-muted-foreground mt-1">проектов</div>
-                      </div>
+                  <div className="flex gap-8 shrink-0">
+                    <div>
+                      <div className="font-display text-3xl text-gradient-gold">15+</div>
+                      <div className="text-xs text-muted-foreground mt-1">лет опыта</div>
+                    </div>
+                    <div>
+                      <div className="font-display text-3xl text-gradient-gold">1200+</div>
+                      <div className="text-xs text-muted-foreground mt-1">проектов</div>
                     </div>
                   </div>
                 </div>
-                {/* Угловой акцент */}
-                <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/40" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/40" />
-              </div>
-            </Reveal>
 
-            {/* Правая сетка 2x2 + 1 широкая */}
-            <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
-              {ADVANTAGES.slice(1).map((a, i) => (
-                <Reveal
-                  key={a.title}
-                  delay={i * 100}
-                  variant={i % 2 === 0 ? 'left' : 'right'}
-                  className={i === 4 ? 'sm:col-span-2' : ''}
-                >
-                  <div className={`relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden p-6`}>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(40 38% 62% / 0.06), transparent 60%)' }} />
-                    <div className={`relative z-10 ${i === 4 ? 'sm:flex sm:items-center sm:gap-6' : ''}`}>
-                      <div className="flex items-center justify-center shrink-0 w-10 h-10 mb-5 sm:mb-0 border border-border/60 group-hover:border-primary/40 transition-colors">
-                        <Icon name={a.icon} size={18} className="text-primary" />
-                      </div>
-                      <div className={i === 4 ? 'sm:ml-0 mt-0' : 'mt-0'}>
-                        <h3 className="font-display text-lg leading-snug mt-0">{a.title}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
-                      </div>
-                    </div>
-                    {/* Номер-декор */}
-                    <div className="absolute bottom-2 right-3 font-display text-[72px] font-bold leading-none text-foreground/[0.03] select-none pointer-events-none">
-                      {String(i + 2).padStart(2, '0')}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
+                <div className="hairline mb-6" />
+
+                {/* Галерея */}
+                <ProductionGallery />
+              </div>
             </div>
+          </Reveal>
+
+          {/* Сетка преимуществ */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ADVANTAGES.slice(1).map((a, i) => (
+              <Reveal
+                key={a.title}
+                delay={i * 100}
+                variant={i % 2 === 0 ? 'left' : 'right'}
+                className={i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}
+              >
+                <div className="relative group h-full border border-border/60 hover:border-primary/40 bg-card transition-colors duration-500 overflow-hidden p-6">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(40 38% 62% / 0.06), transparent 60%)' }} />
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-center shrink-0 w-10 h-10 mb-5 border border-border/60 group-hover:border-primary/40 transition-colors">
+                      <Icon name={a.icon} size={18} className="text-primary" />
+                    </div>
+                    <h3 className="font-display text-lg leading-snug">{a.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                  </div>
+                  <div className="absolute bottom-2 right-3 font-display text-[72px] font-bold leading-none text-foreground/[0.03] select-none pointer-events-none">
+                    {String(i + 2).padStart(2, '0')}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
 
           {/* Нижняя полоса с гарантией */}
