@@ -42,6 +42,14 @@ export const MARBLE = [
   { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ffefea0-f5f2-4259-8a9d-09d01580e011.jpg' },
 ];
 
+export const MILITARY = [
+  { title: 'С бронзовой скульптурой', desc: 'Полноростовая бронзовая фигура воина на гранитном постаменте.', price: 'от 350 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3f3df90d-57bc-4bfb-a3bc-12ddb8ae6f8f.png' },
+  { title: 'С десантной символикой', desc: 'Памятник с цветным портретом и символикой ВДВ.', price: 'от 95 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/27f8766b-581c-4914-bf5f-d3631a8f627a.png' },
+  { title: 'С солдатской скульптурой', desc: 'Бронзовая фигура солдата рядом с вертикальным памятником.', price: 'от 280 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/9c77ef79-1139-4510-aa0c-19de0f250117.png' },
+  { title: 'С цветным портретом', desc: 'Высокий гранитный памятник с цветной фотографией в полный рост.', price: 'от 75 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/214cd763-d222-4a31-abfc-da84b872abc9.png' },
+  { title: 'С портретом и гравировкой', desc: 'Лаконичный вертикальный памятник с цветным портретом во весь рост.', price: 'от 65 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/2a971389-2b9b-411a-97ba-2c7d3af909f7.png' },
+];
+
 export const STONES = [
   { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/6cb19852-cbb8-45be-833e-5a34e1d401c8.jpg' },
   { name: 'Дымовский гранит', desc: 'Тёмно-серый с тонким рисунком.', feat: 'Прочный, ровный тон', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3b008337-de9b-472f-9029-34fd53b1c151.jpg' },

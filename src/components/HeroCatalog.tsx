@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
-import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, MARBLE, STONES } from '@/components/shared';
+import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, MARBLE, MILITARY, STONES } from '@/components/shared';
 import ConsultModal from '@/components/ConsultModal';
 
 export default function HeroCatalog() {
@@ -110,6 +110,47 @@ export default function HeroCatalog() {
               </div>
             </div>
           ))}
+
+          {/* Военные памятники СВО */}
+          <div className="mt-20">
+            <Reveal variant="left">
+              <div className="flex items-center gap-3 mb-2">
+                <Icon name="Shield" size={26} className="text-primary" />
+                <h3 className="text-2xl md:text-3xl font-display font-medium">Военные памятники СВО</h3>
+              </div>
+              <p className="mb-8 text-sm text-muted-foreground pl-[38px]">
+                Индивидуальные мемориальные комплексы с бронзовыми скульптурами и цветными портретами для героев СВО.
+              </p>
+            </Reveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+              {MILITARY.map((item, i) => (
+                <Reveal key={item.title} delay={i * 90} variant="scale">
+                  <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <img
+                        src={item.img}
+                        alt={`Военный памятник СВО — ${item.title}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
+                        <h4 className="font-display text-xl text-foreground">{item.title}</h4>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                          <div className="mt-3 text-primary font-medium">{item.price}</div>
+                          <button className="mt-4 inline-flex items-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2 transition-colors">
+                            Узнать цену
+                            <Icon name="ArrowRight" size={15} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
