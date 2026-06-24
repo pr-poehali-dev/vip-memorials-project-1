@@ -39,11 +39,7 @@ export const GRANITE = [
 ];
 
 export const MARBLE = [
-  { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4b2fc908-8949-42ed-ab06-1ac086abcf43.jpg' },
-  { title: 'Фигурные', desc: 'Плавные изгибы и индивидуальная форма.', price: 'от 36 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/7088d931-9e5f-4a76-b167-fe6a5bdf16b7.jpg' },
-  { title: 'Православные', desc: 'С резным крестом и религиозной символикой.', price: 'от 34 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/5cc2500b-8d21-40ab-aec3-04e2b59d241e.jpg' },
-  { title: 'Семейные', desc: 'Просторная композиция для нескольких имён.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/a937ca6a-1693-462c-b799-e0747214b6df.jpg' },
-  { title: 'Мемориальные комплексы', desc: 'Полное благоустройство участка в мраморе.', price: 'от 95 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/ca7f74fe-37f4-4062-b427-729d08577cd1.jpg' },
+  { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ffefea0-f5f2-4259-8a9d-09d01580e011.jpg' },
 ];
 
 export const STONES = [
