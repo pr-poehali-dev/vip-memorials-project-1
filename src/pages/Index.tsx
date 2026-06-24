@@ -15,8 +15,10 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header scrolled={scrolled} />
-      <HeroCatalog />
-      <WhyUsFaqContacts />
+      <main>
+        <HeroCatalog />
+        <WhyUsFaqContacts />
+      </main>
     </div>
   );
 }

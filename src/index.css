@@ -188,3 +188,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Фикс горизонтального overflow */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Отступ под мобильную нижнюю панель */
+@media (max-width: 1023px) {
+  main {
+    padding-bottom: 56px;
+  }
+}

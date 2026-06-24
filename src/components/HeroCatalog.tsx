@@ -12,50 +12,56 @@ export default function HeroCatalog() {
       <ConsultModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* HERO */}
-      <section id="hero" className="relative min-h-screen flex items-center">
+      <section id="hero" className="relative min-h-[100dvh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Элитный памятник из натурального гранита" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/70" />
+          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-background/60" />
         </div>
 
-        <div className="container relative z-10 pt-28 pb-20">
-          <div className="max-w-3xl">
-            <span className="animate-fade-in inline-block text-xs uppercase tracking-[0.35em] text-primary/90 mb-6">
+        <div className="container relative z-10 py-24 pt-24">
+          <div className="max-w-2xl">
+            <span className="animate-fade-in inline-block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-primary/90 mb-4 sm:mb-6">
               Камнеобрабатывающая мастерская
             </span>
-            <h1 className="animate-fade-in text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-[1.08]">
+            <h1 className="animate-fade-in text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1]">
               Изготавливаем памятники, которые достойно сохраняют память о близких
             </h1>
-            <p className="animate-fade-in mt-7 text-lg text-muted-foreground max-w-2xl leading-relaxed" style={{ animationDelay: '0.15s' }}>
-              Индивидуальное изготовление памятников из натурального камня с доставкой и установкой.
-              Бережно относимся к каждой детали и соблюдаем сроки.
+            <p className="animate-fade-in mt-4 sm:mt-6 text-sm sm:text-base text-muted-foreground leading-relaxed" style={{ animationDelay: '0.15s' }}>
+              Индивидуальное изготовление из натурального камня с доставкой и установкой.
             </p>
 
-            <div className="animate-fade-in mt-9 flex flex-wrap gap-x-7 gap-y-3" style={{ animationDelay: '0.3s' }}>
+            <div className="animate-fade-in mt-5 sm:mt-7 flex flex-wrap gap-x-5 gap-y-2" style={{ animationDelay: '0.3s' }}>
               {TRUST.map((t) => (
-                <span key={t} className="flex items-center gap-2 text-sm text-foreground/90">
-                  <Icon name="Check" size={16} className="text-primary" />
+                <span key={t} className="flex items-center gap-1.5 text-xs sm:text-sm text-foreground/90">
+                  <Icon name="Check" size={14} className="text-primary shrink-0" />
                   {t}
                 </span>
               ))}
             </div>
 
-            <div className="animate-fade-in mt-10 flex flex-wrap gap-4" style={{ animationDelay: '0.45s' }}>
-              <Button size="lg" onClick={() => setModalOpen(true)} className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 h-12">
+            <div className="animate-fade-in mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap gap-3" style={{ animationDelay: '0.45s' }}>
+              <Button
+                onClick={() => setModalOpen(true)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-6 h-11 sm:h-12 text-sm sm:text-base w-full xs:w-auto"
+              >
                 Получить консультацию
               </Button>
-              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary rounded-none px-8 h-12" asChild>
+              <Button
+                variant="outline"
+                className="border-border text-foreground hover:bg-secondary rounded-none px-6 h-11 sm:h-12 text-sm sm:text-base w-full xs:w-auto"
+                asChild
+              >
                 <a href="#catalog">Смотреть каталог</a>
               </Button>
             </div>
           </div>
 
-          <div className="animate-fade-in mt-20 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 border border-border/40" style={{ animationDelay: '0.6s' }}>
+          <div className="animate-fade-in mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 border border-border/40" style={{ animationDelay: '0.6s' }}>
             {STATS.map((s) => (
-              <div key={s.label} className="bg-background/70 backdrop-blur-sm p-7 text-center">
-                <div className="font-display text-4xl md:text-5xl text-gradient-gold">{s.value}{s.suffix}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{s.label}</div>
+              <div key={s.label} className="bg-background/70 backdrop-blur-sm p-4 sm:p-6 text-center">
+                <div className="font-display text-2xl sm:text-3xl md:text-4xl text-gradient-gold">{s.value}{s.suffix}</div>
+                <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{s.label}</div>
               </div>
             ))}
           </div>
@@ -63,7 +69,7 @@ export default function HeroCatalog() {
       </section>
 
       {/* CATALOG */}
-      <section id="catalog" className="py-24 md:py-32 section-fade-top">
+      <section id="catalog" className="py-16 md:py-28 section-fade-top">
         <div className="container">
           <Reveal variant="up">
             <SectionTitle kicker="Каталог продукции" title="Памятники, созданные с уважением к деталям" />
@@ -155,7 +161,7 @@ export default function HeroCatalog() {
       </section>
 
       {/* STONE TYPES */}
-      <section id="stone" className="py-24 md:py-32 bg-card/40 section-vignette">
+      <section id="stone" className="py-16 md:py-28 bg-card/40 section-vignette">
         <div className="container">
           <Reveal variant="up">
             <SectionTitle kicker="Виды камня" title="Натуральный материал из лучших карьеров" />

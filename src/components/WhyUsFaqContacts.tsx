@@ -15,7 +15,7 @@ export default function WhyUsFaqContacts() {
   return (
     <>
       {/* WHY US */}
-      <section className="relative overflow-hidden py-28 md:py-36 bg-background section-vignette">
+      <section className="relative overflow-hidden py-16 md:py-28 bg-background section-vignette">
         {/* Текстура тёмного мрамора */}
         <div className="absolute inset-0">
           <img
@@ -34,15 +34,15 @@ export default function WhyUsFaqContacts() {
 
           {/* Шапка секции */}
           <Reveal variant="up">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-10 md:mb-16">
               <div className="max-w-2xl">
                 <span className="text-xs uppercase tracking-[0.35em] text-primary/80">Почему выбирают нас</span>
-                <h2 className="mt-4 text-4xl md:text-6xl font-display font-medium leading-[1.05]">
-                  Почему семьи<br className="hidden md:block" /> доверяют нам
+                <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.05]">
+                  Почему семьи доверяют нам
                 </h2>
               </div>
-              <p className="lg:max-w-sm text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-5">
-                Мы понимаем, насколько важно сохранить память о близких достойно. Поэтому уделяем внимание каждой детали — от выбора камня до установки готового изделия.
+              <p className="lg:max-w-sm text-sm text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4">
+                Уделяем внимание каждой детали — от выбора камня до установки готового изделия.
               </p>
             </div>
           </Reveal>
@@ -57,27 +57,27 @@ export default function WhyUsFaqContacts() {
               <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/40 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/40 pointer-events-none" />
 
-              <div className="relative z-10 p-8 md:p-10">
+              <div className="relative z-10 p-5 sm:p-8 md:p-10">
                 {/* Шапка карточки */}
-                <div className="flex flex-wrap items-start justify-between gap-6 mb-6">
-                  <div className="flex items-center gap-5">
-                    <div className="inline-flex items-center justify-center w-14 h-14 border border-primary/40 shrink-0">
-                      <Icon name="Factory" size={28} className="text-primary" />
+                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-start justify-between gap-5 mb-6">
+                  <div className="flex items-start gap-4 flex-1 min-w-0">
+                    <div className="inline-flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 border border-primary/40 shrink-0">
+                      <Icon name="Factory" size={22} className="text-primary" />
                     </div>
-                    <div>
-                      <h3 className="text-3xl font-display font-medium leading-tight">Собственное производство</h3>
-                      <p className="mt-2 text-muted-foreground leading-relaxed max-w-xl">
-                        Полный цикл — от обработки камня до установки. Современные станки ЧПУ, гидроабразивная резка и лазерная гравировка. Никаких посредников и потери в качестве.
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-medium leading-tight">Собственное производство</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        Полный цикл — от обработки камня до установки. ЧПУ, гидроабразивная резка, лазерная гравировка. Никаких посредников.
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-8 shrink-0">
+                  <div className="flex gap-6 sm:gap-8 shrink-0">
                     <div>
-                      <div className="font-display text-3xl text-gradient-gold">15+</div>
+                      <div className="font-display text-2xl sm:text-3xl text-gradient-gold">15+</div>
                       <div className="text-xs text-muted-foreground mt-1">лет опыта</div>
                     </div>
                     <div>
-                      <div className="font-display text-3xl text-gradient-gold">1200+</div>
+                      <div className="font-display text-2xl sm:text-3xl text-gradient-gold">1200+</div>
                       <div className="text-xs text-muted-foreground mt-1">проектов</div>
                     </div>
                   </div>
@@ -146,7 +146,7 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* STAGES */}
-      <section id="stages" className="py-24 md:py-32 bg-card/30 overflow-hidden section-vignette">
+      <section id="stages" className="py-16 md:py-28 bg-card/30 overflow-hidden section-vignette">
         <div className="container">
           <Reveal variant="up">
             <SectionTitle kicker="Этапы работы" title="Прозрачный процесс от заявки до монтажа" />
@@ -220,7 +220,7 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 md:py-32 bg-card/40 section-fade-top">
+      <section id="faq" className="py-16 md:py-28 bg-card/40 section-fade-top">
         <div className="container max-w-3xl">
           <Reveal variant="up">
             <SectionTitle kicker="Вопрос — ответ" title="Отвечаем на частые вопросы" />
@@ -243,13 +243,13 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* CONTACTS */}
-      <section id="contacts" className="py-24 md:py-32 section-fade-top">
+      <section id="contacts" className="py-16 md:py-28 section-fade-top">
         <div className="container">
           <Reveal variant="up">
             <SectionTitle kicker="Контакты" title="Свяжитесь с нами для консультации" />
           </Reveal>
           <div className="grid lg:grid-cols-2 gap-px bg-border/40 border border-border/40">
-            <Reveal variant="left" className="bg-card p-8 md:p-10">
+            <Reveal variant="left" className="bg-card p-5 sm:p-8 md:p-10">
               <div className="space-y-7">
                 {[
                   { icon: 'MapPin', label: 'Адрес', value: '—' },
@@ -276,7 +276,7 @@ export default function WhyUsFaqContacts() {
               </div>
             </Reveal>
 
-            <Reveal delay={150} variant="right" className="bg-card p-8 md:p-10">
+            <Reveal delay={150} variant="right" className="bg-card p-5 sm:p-8 md:p-10">
               <h3 className="text-2xl font-display mb-6">Получить консультацию</h3>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <Input placeholder="Имя" className="bg-secondary border-border/60 rounded-none h-12" />
@@ -295,12 +295,12 @@ export default function WhyUsFaqContacts() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border/60 bg-card/40">
-        <div className="container py-16">
-          <div className="grid md:grid-cols-4 gap-10">
-            <div>
+      <footer className="border-t border-border/60 bg-card/40 pb-16 lg:pb-0">
+        <div className="container py-10 md:py-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+            <div className="col-span-2 md:col-span-1">
               <a href="#hero" className="flex items-center">
-                <img src={LOGO_URL} alt="VIP памятники" className="h-16 w-auto" />
+                <img src={LOGO_URL} alt="VIP памятники" className="h-12 md:h-16 w-auto" />
               </a>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 Изготовление памятников из натурального камня с доставкой и установкой под ключ.
@@ -309,7 +309,7 @@ export default function WhyUsFaqContacts() {
 
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Навигация</h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {NAV.map((n) => (
                   <li key={n.href}>
                     <a href={n.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">{n.label}</a>
@@ -320,11 +320,11 @@ export default function WhyUsFaqContacts() {
 
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Контакты</h4>
-              <ul className="space-y-2.5 text-sm text-foreground/80">
+              <ul className="space-y-2 text-sm text-foreground/80">
                 <li>Телефон: —</li>
                 <li>Email: —</li>
               </ul>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {SOCIALS.map((s) => (
                   <a key={s.label} href="#" aria-label={s.label} className="w-9 h-9 border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors">
                     <Icon name={s.icon} size={16} />
@@ -335,7 +335,7 @@ export default function WhyUsFaqContacts() {
 
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Документы</h4>
-              <ul className="space-y-2.5 text-sm text-foreground/80">
+              <ul className="space-y-2 text-sm text-foreground/80">
                 <li><a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Согласие на обработку данных</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Пользовательское соглашение</a></li>
@@ -343,7 +343,7 @@ export default function WhyUsFaqContacts() {
             </div>
           </div>
 
-          <div className="mt-12 pt-6 border-t border-border/40 text-center text-sm text-muted-foreground">
+          <div className="mt-10 pt-6 border-t border-border/40 text-center text-sm text-muted-foreground">
             © 2026 VIP памятники. Все права защищены.
           </div>
         </div>

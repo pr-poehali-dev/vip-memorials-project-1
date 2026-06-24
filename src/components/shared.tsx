@@ -34,7 +34,6 @@ export const GRANITE = [
   { title: 'Прямые', desc: 'Лаконичная вертикальная форма из чёрного гранита.', price: 'от 18 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4c279ef4-499e-44b7-bbb7-174cea7f9ed5.jpg' },
   { title: 'Резные', desc: 'Художественная резьба и объёмные орнаменты.', price: 'от 32 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/b364e454-01cf-47ee-8e65-97457f8bcd7d.jpg' },
   { title: 'Двойные', desc: 'Памятник на двоих с общей композицией.', price: 'от 45 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/da49c1db-4873-469c-9f96-1a0fb5bb7269.jpg' },
-  { title: 'Мемориальные комплексы', desc: 'Памятник, плитка, ограда и благоустройство.', price: 'от 90 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/1af36c38-a321-491a-a8e6-2f0c83b9e6d7.jpg' },
   { title: 'Комбинированные', desc: 'Сочетание гранита и мрамора в одном изделии.', price: 'от 38 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3a7ab861-9a94-4f76-953a-af842764c930.jpg' },
 ];
 
