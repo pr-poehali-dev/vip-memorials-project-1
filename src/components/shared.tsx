@@ -31,8 +31,11 @@ export const STATS = [
 ];
 
 export const GRANITE = [
-  { title: 'Прямые', desc: 'Лаконичная вертикальная форма из чёрного гранита.', price: 'от 18 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/4c279ef4-499e-44b7-bbb7-174cea7f9ed5.jpg' },
-  { title: 'Резные', desc: 'Художественная резьба и объёмные орнаменты.', price: 'от 32 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/b364e454-01cf-47ee-8e65-97457f8bcd7d.jpg' },
+  { title: 'Резной с крестом', desc: 'Ажурный крест и цветной портрет на чёрном граните.', price: 'от 55 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/0b3355c8-b32d-49f2-beb1-8c8291ac26c8.jpg' },
+  { title: 'Резной с цветком', desc: 'Форма цветка с фигурной резьбой и портретом.', price: 'от 47 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/a12bd9f8-ac95-49e0-8f7a-85b8a3652d67.jpg' },
+  { title: 'Ажурная резьба', desc: 'Кружевной орнамент и резной крест ручной работы.', price: 'от 89 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/1f4358c8-85d3-4084-9e89-5b529203fa6e.png' },
+  { title: 'С цветником', desc: 'Горизонтальная стела с крестами и местом под цветник.', price: 'от 61 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ba9f7e6-1bfe-4d01-92ca-991184109cef.png' },
+  { title: 'Классический с гравировкой', desc: 'Строгая форма с гравировкой креста и облицовкой.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/295d175c-19f1-472c-b382-94ecce7edc7b.png' },
   { title: 'Двойные', desc: 'Памятник на двоих с общей композицией.', price: 'от 45 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/da49c1db-4873-469c-9f96-1a0fb5bb7269.jpg' },
   { title: 'Комбинированные', desc: 'Сочетание гранита и мрамора в одном изделии.', price: 'от 38 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3a7ab861-9a94-4f76-953a-af842764c930.jpg' },
 ];
