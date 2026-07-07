@@ -117,25 +117,25 @@ export default function HeroCatalog() {
             </div>
           ))}
 
-          {/* Военные памятники СВО */}
-          <div className="mt-20">
+          {/* Мемориальные комплексы */}
+          <div id="memorial" className="mt-20 scroll-mt-24">
             <Reveal variant="left">
               <div className="flex items-center gap-3 mb-2">
-                <Icon name="Shield" size={26} className="text-primary" />
-                <h3 className="text-2xl md:text-3xl font-display font-medium">Военные памятники СВО</h3>
+                <Icon name="Landmark" size={26} className="text-primary" />
+                <h3 className="text-2xl md:text-3xl font-display font-medium">Мемориальные комплексы</h3>
               </div>
               <p className="mb-8 text-sm text-muted-foreground pl-[38px]">
-                Индивидуальные мемориальные комплексы с бронзовыми скульптурами и цветными портретами для героев СВО.
+                Масштабные семейные комплексы с колоннами, порталами и оградами из натурального гранита.
               </p>
             </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {MILITARY.map((item, i) => (
+              {MEMORIAL_COMPLEX.map((item, i) => (
                 <Reveal key={item.title} delay={i * 90} variant="scale">
                   <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
                     <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
                       <img
                         src={item.img}
-                        alt={`Военный памятник СВО — ${item.title}`}
+                        alt={`Мемориальный комплекс — ${item.title}`}
                         loading="lazy"
                         className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
@@ -158,25 +158,25 @@ export default function HeroCatalog() {
             </div>
           </div>
 
-          {/* Мемориальные комплексы */}
-          <div id="memorial" className="mt-20 scroll-mt-24">
+          {/* Военные памятники СВО */}
+          <div className="mt-20">
             <Reveal variant="left">
               <div className="flex items-center gap-3 mb-2">
-                <Icon name="Landmark" size={26} className="text-primary" />
-                <h3 className="text-2xl md:text-3xl font-display font-medium">Мемориальные комплексы</h3>
+                <Icon name="Shield" size={26} className="text-primary" />
+                <h3 className="text-2xl md:text-3xl font-display font-medium">Военные памятники СВО</h3>
               </div>
               <p className="mb-8 text-sm text-muted-foreground pl-[38px]">
-                Масштабные семейные комплексы с колоннами, порталами и оградами из натурального гранита.
+                Индивидуальные мемориальные комплексы с бронзовыми скульптурами и цветными портретами для героев СВО.
               </p>
             </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {MEMORIAL_COMPLEX.map((item, i) => (
+              {MILITARY.map((item, i) => (
                 <Reveal key={item.title} delay={i * 90} variant="scale">
                   <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
                     <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
                       <img
                         src={item.img}
-                        alt={`Мемориальный комплекс — ${item.title}`}
+                        alt={`Военный памятник СВО — ${item.title}`}
                         loading="lazy"
                         className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
