@@ -55,6 +55,14 @@ export const MILITARY = [
   { title: 'С портретом и гравировкой', desc: 'Лаконичный вертикальный памятник с цветным портретом во весь рост.', price: 'от 65 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/2a971389-2b9b-411a-97ba-2c7d3af909f7.png' },
 ];
 
+export const MEMORIAL_COMPLEX = [
+  { title: 'Арочный портал', desc: 'Массивная арка на колоннах с полированной стелой в центре.', price: 'от 380 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/9a9488cf-6bdf-42dc-b784-6dffc301d7a2.png' },
+  { title: 'Колонный портал с балюстрадой', desc: 'Изогнутый купол на колоннах с балюстрадой и лампадами.', price: '520 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/ca07d703-96ce-4878-bb7a-b08c37e91556.png' },
+  { title: 'Беседка-портик', desc: 'Изящный портик с колоннами и шарами-навершиями на постаментах.', price: 'от 840 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/19e1efa0-cd73-4276-b37b-911edf1185d4.png' },
+  { title: 'Семейный комплекс с оградой', desc: 'Общий комплекс из чёрного гранита с двумя местами и золотыми вставками.', price: 'от 560 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/56f852a3-4f36-4ec1-849c-7d9ed3cbcf01.png' },
+  { title: 'Портал с рифлёными колоннами', desc: 'Арочный портал с рифлёными колоннами и резными вставками.', price: 'от 480 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/dca76023-ac11-4d8f-8e09-2305b9ec5073.png' },
+];
+
 export const STONES = [
   { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/6cb19852-cbb8-45be-833e-5a34e1d401c8.jpg' },
   { name: 'Дымовский гранит', desc: 'Тёмно-серый с тонким рисунком.', feat: 'Прочный, ровный тон', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3b008337-de9b-472f-9029-34fd53b1c151.jpg' },
