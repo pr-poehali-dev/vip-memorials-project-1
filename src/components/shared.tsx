@@ -45,7 +45,11 @@ export const GRANITE = [
 ];
 
 export const MARBLE = [
-  { title: 'Классические', desc: 'Строгая форма из белоснежного мрамора.', price: 'от 20 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ffefea0-f5f2-4259-8a9d-09d01580e011.jpg' },
+  { title: 'С крестом и портретом', desc: 'Фигурная стела из серого мрамора с гравировкой креста.', price: 'от 27 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/a3397b38-c19f-4e42-953a-eaf4df24a98e.jpg' },
+  { title: 'С розами', desc: 'Резной орнамент из роз вокруг портрета и креста.', price: 'от 33 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/b23cb71d-81e5-411e-8462-c8a1409f0b44.jpg' },
+  { title: 'Двойной парный', desc: 'Памятник на двоих фигурной формы с двумя портретами.', price: 'от 48 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/fbdebdca-f29f-494d-a5e1-1d9f87e7f96f.jpg' },
+  { title: 'Классический вертикальный', desc: 'Строгая прямая стела из серого мрамора с портретом.', price: 'от 21 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/9e1defb5-eb69-49db-95ef-747b439b45cd.jpg' },
+  { title: 'С растительным орнаментом', desc: 'Фигурная стела с резными веточками и крестом.', price: 'от 26 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/20bfe733-48f4-4b4f-a04d-b6c3e5aea812.jpg' },
 ];
 
 export const MILITARY = [
