@@ -252,9 +252,9 @@ export default function WhyUsFaqContacts() {
             <Reveal variant="left" className="bg-card p-5 sm:p-8 md:p-10">
               <div className="space-y-7">
                 {[
-                  { icon: 'MapPin', label: 'Адрес', value: '—' },
-                  { icon: 'Phone', label: 'Телефон', value: '—' },
-                  { icon: 'Mail', label: 'Email', value: '—' },
+                  { icon: 'MapPin', label: 'Адрес', value: 'г. Белореченск, посёлок Родники, ул. Офицерская, 2' },
+                  { icon: 'Phone', label: 'Телефон', value: '+7 918 111-55-25' },
+                  { icon: 'Mail', label: 'Email', value: 'info@vip-pamyatniki.ru' },
                   { icon: 'Clock', label: 'Режим работы', value: '—' },
                 ].map((c) => (
                   <div key={c.label} className="flex items-start gap-4">
@@ -263,7 +263,13 @@ export default function WhyUsFaqContacts() {
                     </div>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.label}</div>
-                      <div className="mt-1 text-foreground">{c.value}</div>
+                      {c.label === 'Телефон' ? (
+                        <a href="tel:+79181115525" className="mt-1 block text-foreground hover:text-primary transition-colors">{c.value}</a>
+                      ) : c.label === 'Email' ? (
+                        <a href="mailto:info@vip-pamyatniki.ru" className="mt-1 block text-foreground hover:text-primary transition-colors">{c.value}</a>
+                      ) : (
+                        <div className="mt-1 text-foreground">{c.value}</div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -321,8 +327,8 @@ export default function WhyUsFaqContacts() {
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-foreground/80">
-                <li>Телефон: —</li>
-                <li>Email: —</li>
+                <li>Телефон: <a href="tel:+79181115525" className="hover:text-primary transition-colors">+7 918 111-55-25</a></li>
+                <li>Email: <a href="mailto:info@vip-pamyatniki.ru" className="hover:text-primary transition-colors">info@vip-pamyatniki.ru</a></li>
               </ul>
               <div className="mt-4 flex flex-wrap gap-2">
                 {SOCIALS.map((s) => (
