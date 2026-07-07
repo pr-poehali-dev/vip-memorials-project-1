@@ -36,8 +36,11 @@ export const GRANITE = [
   { title: 'Ажурная резьба', desc: 'Кружевной орнамент и резной крест ручной работы.', price: 'от 89 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/1f4358c8-85d3-4084-9e89-5b529203fa6e.png' },
   { title: 'С цветником', desc: 'Горизонтальная стела с крестами и местом под цветник.', price: 'от 61 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ba9f7e6-1bfe-4d01-92ca-991184109cef.png' },
   { title: 'Классический с гравировкой', desc: 'Строгая форма с гравировкой креста и облицовкой.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/295d175c-19f1-472c-b382-94ecce7edc7b.png' },
-  { title: 'Двойные', desc: 'Памятник на двоих с общей композицией.', price: 'от 45 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/da49c1db-4873-469c-9f96-1a0fb5bb7269.jpg' },
-  { title: 'Комбинированные', desc: 'Сочетание гранита и мрамора в одном изделии.', price: 'от 38 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3a7ab861-9a94-4f76-953a-af842764c930.jpg' },
+  { title: 'Комбинированный воинский', desc: 'Чёрный и серый гранит, цветной портрет, кресты и памятная лента.', price: 'от 430 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/d7bffaea-3c64-4684-9c22-3b691238a960.jpg' },
+  { title: 'Комбинированный фигурный', desc: 'Плавные изогнутые формы из чёрного и коричневого гранита.', price: 'от 330 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/e0c14181-d710-491f-b014-7e5657f3dc7e.jpg' },
+  { title: 'Комбинированный строгий', desc: 'Сочетание светлого и чёрного гранита в лаконичной форме.', price: 'от 240 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/7c28dcbb-465f-4116-94f9-b11bea652701.jpg' },
+  { title: 'Комбинированный с портретом', desc: 'Бордовый гранит с цветным портретом и светлой стелой.', price: 'от 250 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/b47bbbdb-bee5-4984-94fc-51581f3faa1d.jpg' },
+  { title: 'Комбинированный двойной', desc: 'Памятник на двоих с навесом, крестом и раздельными плитами.', price: 'от 380 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/d6abe209-8fb8-45fd-b81a-73598e83735e.jpg' },
 ];
 
 export const MARBLE = [
