@@ -207,7 +207,7 @@ export default function HeroCatalog() {
           <Reveal variant="up">
             <SectionTitle kicker="Виды камня" title="Натуральный материал из лучших карьеров" />
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {STONES.map((st, i) => (
               <Reveal key={st.name} delay={i * 100} variant="scale">
                 <div className="h-full bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500 group">

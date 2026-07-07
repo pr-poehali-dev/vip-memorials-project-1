@@ -69,11 +69,10 @@ export const MEMORIAL_COMPLEX = [
 ];
 
 export const STONES = [
-  { name: 'Габбро-диабаз', desc: 'Глубокий чёрный камень из Карелии.', feat: 'Не выцветает, морозостоек', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/6cb19852-cbb8-45be-833e-5a34e1d401c8.jpg' },
-  { name: 'Дымовский гранит', desc: 'Тёмно-серый с тонким рисунком.', feat: 'Прочный, ровный тон', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/3b008337-de9b-472f-9029-34fd53b1c151.jpg' },
-  { name: 'Мансуровский гранит', desc: 'Светло-серый уральский камень.', feat: 'Долговечен, благородный оттенок', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/94038167-88b8-4f50-9bd6-2a8668f4caad.jpg' },
-  { name: 'Коелгинский мрамор', desc: 'Белоснежный мрамор премиум-класса.', feat: 'Тёплый, мягкий блеск', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/1c904ac1-fac1-4d56-bd76-4a8e26921555.jpg' },
-  { name: 'Полевской мрамор', desc: 'Светлый мрамор с лёгкими прожилками.', feat: 'Изящная фактура', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/files/cd62fe2d-b6ba-429d-852d-9ce680b27070.jpg' },
+  { name: 'Мансуровский', desc: 'Светло-серый гранит с мелким зерном.', feat: 'Долговечен, благородный оттенок', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3c9fe458-da83-4834-bdfe-694fee9f5f59.png' },
+  { name: 'Балтик Грин', desc: 'Тёмно-зелёный гранит с крупным рисунком.', feat: 'Прочный, редкий оттенок', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/d1f4914c-1584-4322-ab96-cc882967f9db.png' },
+  { name: 'Цветок Урала', desc: 'Светло-серый гранит с равномерной структурой.', feat: 'Морозостоек, не выцветает', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/23c6d1be-6b67-4dc7-a3c0-b100f2ab751e.png' },
+  { name: 'Дымовский', desc: 'Тёмный гранит с коричневыми вкраплениями.', feat: 'Прочный, ровный тон', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/7032ded3-9ed7-4195-bb68-f493db888c51.png' },
 ];
 
 export const ADVANTAGES = [
