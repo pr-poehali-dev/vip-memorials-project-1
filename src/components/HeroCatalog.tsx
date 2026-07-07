@@ -90,12 +90,12 @@ export default function HeroCatalog() {
                 {cat.items.map((item, i) => (
                   <Reveal key={item.title} delay={i * 90} variant="scale">
                     <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
-                      <div className="relative aspect-[3/4] overflow-hidden">
+                      <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
                         <img
                           src={item.img}
                           alt={`${cat.title} — ${item.title}`}
                           loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
@@ -132,12 +132,12 @@ export default function HeroCatalog() {
               {MILITARY.map((item, i) => (
                 <Reveal key={item.title} delay={i * 90} variant="scale">
                   <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
                       <img
                         src={item.img}
                         alt={`Военный памятник СВО — ${item.title}`}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
@@ -173,12 +173,12 @@ export default function HeroCatalog() {
               {MEMORIAL_COMPLEX.map((item, i) => (
                 <Reveal key={item.title} delay={i * 90} variant="scale">
                   <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
                       <img
                         src={item.img}
                         alt={`Мемориальный комплекс — ${item.title}`}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
