@@ -159,7 +159,7 @@ export default function HeroCatalog() {
           </div>
 
           {/* Мемориальные комплексы */}
-          <div className="mt-20">
+          <div id="memorial" className="mt-20 scroll-mt-24">
             <Reveal variant="left">
               <div className="flex items-center gap-3 mb-2">
                 <Icon name="Landmark" size={26} className="text-primary" />

@@ -9,6 +9,7 @@ export const LOGO_URL =
 export const NAV = [
   { label: 'Главная', href: '#hero' },
   { label: 'Каталог', href: '#catalog' },
+  { label: 'Мемориальные комплексы', href: '#memorial' },
   { label: 'Виды камня', href: '#stone' },
   { label: 'Этапы работы', href: '#stages' },
   { label: 'Вопрос-ответ', href: '#faq' },
