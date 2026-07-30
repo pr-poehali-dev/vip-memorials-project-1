@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
-import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, MARBLE, MILITARY, MEMORIAL_COMPLEX, STONES } from '@/components/shared';
+import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, COMBINED, MARBLE, MILITARY, MEMORIAL_COMPLEX, STONES } from '@/components/shared';
 import ConsultModal from '@/components/ConsultModal';
 
 export default function HeroCatalog() {
@@ -77,9 +77,10 @@ export default function HeroCatalog() {
 
           {[
             { title: 'Памятники из гранита', items: GRANITE, icon: 'Mountain' },
+            { title: 'Комбинированные памятники', items: COMBINED, icon: 'Layers' },
             { title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles' },
           ].map((cat, ci) => (
-            <div key={cat.title} className={ci === 1 ? 'mt-20' : ''}>
+            <div key={cat.title} className={ci > 0 ? 'mt-20' : ''}>
               <Reveal variant="left">
                 <div className="flex items-center gap-3 mb-8">
                   <Icon name={cat.icon} size={26} className="text-primary" />
@@ -95,7 +96,7 @@ export default function HeroCatalog() {
                           src={item.img}
                           alt={`${cat.title} — ${item.title}`}
                           loading="lazy"
-                          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">

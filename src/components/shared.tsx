@@ -36,6 +36,9 @@ export const GRANITE = [
   { title: 'Ажурная резьба', desc: 'Кружевной орнамент и резной крест ручной работы.', price: 'от 89 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/1f4358c8-85d3-4084-9e89-5b529203fa6e.png' },
   { title: 'С цветником', desc: 'Горизонтальная стела с крестами и местом под цветник.', price: 'от 61 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/3ba9f7e6-1bfe-4d01-92ca-991184109cef.png' },
   { title: 'Классический с гравировкой', desc: 'Строгая форма с гравировкой креста и облицовкой.', price: 'от 52 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/295d175c-19f1-472c-b382-94ecce7edc7b.png' },
+];
+
+export const COMBINED = [
   { title: 'Комбинированный воинский', desc: 'Чёрный и серый гранит, цветной портрет, кресты и памятная лента.', price: 'от 430 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/d7bffaea-3c64-4684-9c22-3b691238a960.jpg' },
   { title: 'Комбинированный фигурный', desc: 'Плавные изогнутые формы из чёрного и коричневого гранита.', price: 'от 330 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/e0c14181-d710-491f-b014-7e5657f3dc7e.jpg' },
   { title: 'Комбинированный строгий', desc: 'Сочетание светлого и чёрного гранита в лаконичной форме.', price: 'от 240 000 ₽', img: 'https://cdn.poehali.dev/projects/c1825239-e0ac-4fcb-8c28-51248b561aa8/bucket/7c28dcbb-465f-4116-94f9-b11bea652701.jpg' },
