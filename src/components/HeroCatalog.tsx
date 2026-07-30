@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, COMBINED, MARBLE, MILITARY, MEMORIAL_COMPLEX, STONES } from '@/components/shared';
@@ -26,9 +26,16 @@ const CATALOG_SECTIONS = [
   },
 ];
 
+interface GalleryState {
+  sectionId: string;
+  index: number;
+}
+
 export default function HeroCatalog() {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(CATALOG_SECTIONS[0].id);
+  const [gallery, setGallery] = useState<GalleryState | null>(null);
+  const swipeStartX = useRef(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,6 +56,34 @@ export default function HeroCatalog() {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const galleryCat = gallery ? CATALOG_SECTIONS.find((s) => s.id === gallery.sectionId) : null;
+  const galleryItem = galleryCat ? galleryCat.items[gallery!.index] : null;
+
+  const galleryPrev = () => {
+    if (!galleryCat) return;
+    setGallery((g) => g && { ...g, index: (g.index - 1 + galleryCat.items.length) % galleryCat.items.length });
+  };
+  const galleryNext = () => {
+    if (!galleryCat) return;
+    setGallery((g) => g && { ...g, index: (g.index + 1) % galleryCat.items.length });
+  };
+
+  useEffect(() => {
+    if (!gallery) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setGallery(null);
+      if (e.key === 'ArrowLeft') galleryPrev();
+      if (e.key === 'ArrowRight') galleryNext();
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gallery]);
 
   return (
     <>
@@ -149,7 +184,8 @@ export default function HeroCatalog() {
                   <p className="mb-8 text-sm text-muted-foreground pl-[38px]">{cat.desc}</p>
                 )}
               </Reveal>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+              {/* Десктоп: полная сетка карточек */}
+              <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {cat.items.map((item, i) => (
                   <Reveal key={item.title} delay={i * 90} variant="scale">
                     <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
@@ -179,10 +215,118 @@ export default function HeroCatalog() {
                   </Reveal>
                 ))}
               </div>
+
+              {/* Мобильная/планшетная версия: компактные превью + полноэкранная галерея */}
+              <div className="lg:hidden grid grid-cols-3 gap-2">
+                {cat.items.slice(0, 3).map((item, i) => (
+                  <button
+                    key={item.title}
+                    onClick={() => setGallery({ sectionId: cat.id, index: i })}
+                    className="relative aspect-square overflow-hidden bg-secondary border border-border/60"
+                  >
+                    <img
+                      src={item.img}
+                      alt={`${cat.title} — ${item.title}`}
+                      loading="lazy"
+                      className={`w-full h-full ${cat.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                    />
+                    {i === 2 && cat.items.length > 3 && (
+                      <div className="absolute inset-0 bg-background/75 flex items-center justify-center text-sm font-medium text-foreground">
+                        +{cat.items.length - 3}
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => setGallery({ sectionId: cat.id, index: 0 })}
+                className="lg:hidden mt-3 w-full flex items-center justify-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2.5 transition-colors"
+              >
+                Смотреть все ({cat.items.length})
+                <Icon name="ArrowRight" size={15} />
+              </button>
             </div>
           ))}
         </div>
       </section>
+
+      {/* FULLSCREEN GALLERY */}
+      {gallery && galleryCat && galleryItem && (
+        <div className="fixed inset-0 z-[200] flex flex-col bg-background">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 shrink-0">
+            <div className="flex items-center gap-2 min-w-0">
+              <Icon name={galleryCat.icon} size={18} className="text-primary shrink-0" />
+              <span className="text-sm font-medium truncate">{galleryCat.title}</span>
+            </div>
+            <button
+              onClick={() => setGallery(null)}
+              className="w-9 h-9 shrink-0 flex items-center justify-center border border-border/60 hover:border-primary/60 hover:text-primary transition-colors"
+            >
+              <Icon name="X" size={18} />
+            </button>
+          </div>
+
+          <div
+            className="relative flex-1 overflow-hidden touch-pan-y"
+            onTouchStart={(e) => { swipeStartX.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              const dx = e.changedTouches[0].clientX - swipeStartX.current;
+              if (Math.abs(dx) > 40) { if (dx < 0) galleryNext(); else galleryPrev(); }
+            }}
+          >
+            <img
+              src={galleryItem.img}
+              alt={galleryItem.title}
+              className={`absolute inset-0 w-full h-full ${galleryCat.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+
+            <button
+              onClick={galleryPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 backdrop-blur-sm border border-border/60 flex items-center justify-center hover:border-primary/60 hover:text-primary transition-colors"
+            >
+              <Icon name="ChevronLeft" size={20} />
+            </button>
+            <button
+              onClick={galleryNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 backdrop-blur-sm border border-border/60 flex items-center justify-center hover:border-primary/60 hover:text-primary transition-colors"
+            >
+              <Icon name="ChevronRight" size={20} />
+            </button>
+
+            <div className="absolute top-3 right-3 bg-background/70 backdrop-blur-sm border border-border/40 px-3 py-1 text-xs text-muted-foreground font-mono">
+              {gallery.index + 1} / {galleryCat.items.length}
+            </div>
+
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <h4 className="font-display text-2xl text-foreground">{galleryItem.title}</h4>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-md">{galleryItem.desc}</p>
+              <div className="mt-3 text-primary font-medium">{galleryItem.price}</div>
+              <button
+                onClick={() => setModalOpen(true)}
+                className="mt-4 inline-flex items-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2 transition-colors"
+              >
+                Узнать цену
+                <Icon name="ArrowRight" size={15} />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex gap-1.5 overflow-x-auto no-scrollbar px-4 py-3 border-t border-border/50 shrink-0">
+            {galleryCat.items.map((it, i) => (
+              <button
+                key={it.title}
+                onClick={() => setGallery({ sectionId: galleryCat.id, index: i })}
+                className={`relative shrink-0 w-14 h-14 overflow-hidden border transition-colors ${
+                  i === gallery.index ? 'border-primary' : 'border-border/60 opacity-60'
+                }`}
+              >
+                <img src={it.img} alt="" className={`w-full h-full ${galleryCat.fit === 'contain' ? 'object-contain' : 'object-cover'}`} />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* STONE TYPES */}
       <section id="stone" className="py-16 md:py-28 bg-card/40 section-vignette">
