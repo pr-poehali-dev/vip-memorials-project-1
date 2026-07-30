@@ -274,11 +274,14 @@ export default function WhyUsFaqContacts() {
                   </div>
                 ))}
               </div>
-              <div className="mt-8 aspect-[16/10] bg-secondary border border-border/60 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <Icon name="Map" size={32} className="mx-auto opacity-50" />
-                  <p className="mt-2 text-sm">Интерактивная карта</p>
-                </div>
+              <div className="mt-8 aspect-[16/10] border border-border/60 overflow-hidden">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?text=Краснодарский%20край%2C%20Белореченск%2C%20посёлок%20Родники%2C%20улица%20Офицерская%2C%202&z=16"
+                  className="w-full h-full grayscale-[30%] contrast-125"
+                  loading="lazy"
+                  title="Карта проезда"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </Reveal>
 
