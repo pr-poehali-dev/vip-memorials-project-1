@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Reveal, SectionTitle, HERO_IMG, ADVANTAGES, STAGES, FAQ, NAV, SOCIALS, LOGO_URL } from '@/components/shared';
+import { Reveal, SectionTitle, HERO_IMG, ADVANTAGES, STAGES, FAQ, NAV, SOCIALS, LOGO_URL, PHONE_DISPLAY, PHONE_TEL, DOCS } from '@/components/shared';
 import ProductionGallery from '@/components/ProductionGallery';
 
 export default function WhyUsFaqContacts() {
@@ -253,7 +253,7 @@ export default function WhyUsFaqContacts() {
               <div className="space-y-7">
                 {[
                   { icon: 'MapPin', label: 'Адрес', value: 'г. Белореченск, посёлок Родники, ул. Офицерская, 2' },
-                  { icon: 'Phone', label: 'Телефон', value: '+7 918 111-55-25' },
+                  { icon: 'Phone', label: 'Телефон', value: PHONE_DISPLAY },
                   { icon: 'Mail', label: 'Email', value: 'info@vip-pamyatniki.ru' },
                   { icon: 'Clock', label: 'Режим работы', value: 'Пн–Сб: 8:00–17:00, Вс: выходной' },
                 ].map((c) => (
@@ -264,7 +264,7 @@ export default function WhyUsFaqContacts() {
                     <div>
                       <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.label}</div>
                       {c.label === 'Телефон' ? (
-                        <a href="tel:+79181115525" className="mt-1 block text-foreground hover:text-primary transition-colors">{c.value}</a>
+                        <a href={PHONE_TEL} className="mt-1 block text-foreground hover:text-primary transition-colors">{c.value}</a>
                       ) : c.label === 'Email' ? (
                         <a href="mailto:info@vip-pamyatniki.ru" className="mt-1 block text-foreground hover:text-primary transition-colors">{c.value}</a>
                       ) : (
@@ -330,7 +330,7 @@ export default function WhyUsFaqContacts() {
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-foreground/80">
-                <li>Телефон: <a href="tel:+79181115525" className="hover:text-primary transition-colors">+7 918 111-55-25</a></li>
+                <li>Телефон: <a href={PHONE_TEL} className="hover:text-primary transition-colors">{PHONE_DISPLAY}</a></li>
                 <li>Email: <a href="mailto:info@vip-pamyatniki.ru" className="hover:text-primary transition-colors">info@vip-pamyatniki.ru</a></li>
               </ul>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -345,15 +345,15 @@ export default function WhyUsFaqContacts() {
             <div>
               <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Документы</h4>
               <ul className="space-y-2 text-sm text-foreground/80">
-                <li><a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Согласие на обработку данных</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Пользовательское соглашение</a></li>
+                {DOCS.map((d) => (
+                  <li key={d.label}><a href={d.href} className="hover:text-primary transition-colors">{d.label}</a></li>
+                ))}
               </ul>
             </div>
           </div>
 
           <div className="mt-10 pt-6 border-t border-border/40 text-center text-sm text-muted-foreground">
-            © 2026 VIP памятники. Все права защищены.
+            © {new Date().getFullYear()} VIP памятники. Все права защищены.
           </div>
         </div>
       </footer>

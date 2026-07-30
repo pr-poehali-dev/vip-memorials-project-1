@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
-import { NAV, LOGO_URL } from '@/components/shared';
+import { NAV, LOGO_URL, PHONE_DISPLAY, PHONE_TEL, DOCS } from '@/components/shared';
 
 interface HeaderProps {
   scrolled: boolean;
@@ -9,6 +9,11 @@ interface HeaderProps {
 
 export default function Header({ scrolled }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <>
@@ -31,8 +36,8 @@ export default function Header({ scrolled }: HeaderProps) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4 xl:gap-5 shrink-0">
-            <a href="tel:+70000000000" className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
-              +7 (000) 000-00-00
+            <a href={PHONE_TEL} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
+              {PHONE_DISPLAY}
             </a>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-4 xl:px-5 text-sm">
               Заказать звонок
@@ -47,35 +52,66 @@ export default function Header({ scrolled }: HeaderProps) {
             <Icon name={menuOpen ? 'X' : 'Menu'} size={24} />
           </button>
         </div>
+      </header>
 
-        {menuOpen && (
-          <div className="lg:hidden bg-background/98 backdrop-blur-xl border-t border-border/60">
+      {/* MOBILE FULLSCREEN MENU */}
+      {menuOpen && (
+        <div className="lg:hidden fixed inset-0 z-[100] bg-background flex flex-col">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-border/60 shrink-0">
+            <a href="#hero" onClick={() => setMenuOpen(false)} className="flex items-center">
+              <img src={LOGO_URL} alt="VIP памятники" className="h-9 w-auto" />
+            </a>
+            <button onClick={() => setMenuOpen(false)} aria-label="Закрыть меню" className="text-foreground p-1">
+              <Icon name="X" size={26} />
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto pb-24">
             <nav className="container flex flex-col">
               {NAV.map((n) => (
                 <a
                   key={n.href}
                   href={n.href}
                   onClick={() => setMenuOpen(false)}
-                  className="py-3.5 text-sm text-muted-foreground hover:text-primary border-b border-border/40 transition-colors"
+                  className="py-4 text-base text-foreground hover:text-primary border-b border-border/40 transition-colors"
                 >
                   {n.label}
                 </a>
               ))}
-              <div className="py-4 flex flex-col gap-3">
-                <a href="tel:+70000000000" className="flex items-center gap-2 text-sm font-medium text-foreground">
-                  <Icon name="Phone" size={16} className="text-primary" />
-                  +7 (000) 000-00-00
-                </a>
+
+              <a
+                href={PHONE_TEL}
+                className="flex items-center gap-2 text-base font-medium text-foreground py-5 border-b border-border/40"
+              >
+                <Icon name="Phone" size={17} className="text-primary" />
+                {PHONE_DISPLAY}
+              </a>
+
+              <div className="py-6">
+                <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Документы</h4>
+                <ul className="space-y-3">
+                  {DOCS.map((d) => (
+                    <li key={d.label}>
+                      <a href={d.href} onClick={() => setMenuOpen(false)} className="text-sm text-foreground/80 hover:text-primary transition-colors">
+                        {d.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </nav>
+
+            <div className="container pb-8 pt-2 text-center text-xs text-muted-foreground border-t border-border/40">
+              © {new Date().getFullYear()} VIP памятники. Все права защищены.
+            </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
 
       {/* MOBILE ACTION BAR */}
       <div className="lg:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-3 bg-background/95 backdrop-blur-xl border-t border-border/60 safe-bottom">
         {[
-          { icon: 'Phone', label: 'Позвонить', href: 'tel:+70000000000' },
+          { icon: 'Phone', label: 'Позвонить', href: PHONE_TEL },
           { icon: 'MessageCircle', label: 'WhatsApp', href: '#' },
           { icon: 'Send', label: 'Telegram', href: '#' },
         ].map((a) => (

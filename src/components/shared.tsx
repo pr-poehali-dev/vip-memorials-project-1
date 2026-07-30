@@ -5,6 +5,9 @@ export const HERO_IMG =
 
 export const LOGO_URL = '/vip-logo.png';
 
+export const PHONE_DISPLAY = '+7 918 111-55-25';
+export const PHONE_TEL = 'tel:+79181115525';
+
 export const NAV = [
   { label: 'Главная', href: '#hero' },
   { label: 'Каталог', href: '#catalog' },
@@ -13,6 +16,12 @@ export const NAV = [
   { label: 'Этапы работы', href: '#stages' },
   { label: 'Вопрос-ответ', href: '#faq' },
   { label: 'Контакты', href: '#contacts' },
+];
+
+export const DOCS = [
+  { label: 'Политика конфиденциальности', href: '#' },
+  { label: 'Согласие на обработку данных', href: '#' },
+  { label: 'Пользовательское соглашение', href: '#' },
 ];
 
 export const TRUST = [
