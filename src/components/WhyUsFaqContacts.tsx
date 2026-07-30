@@ -255,7 +255,7 @@ export default function WhyUsFaqContacts() {
                   { icon: 'MapPin', label: 'Адрес', value: 'г. Белореченск, посёлок Родники, ул. Офицерская, 2' },
                   { icon: 'Phone', label: 'Телефон', value: '+7 918 111-55-25' },
                   { icon: 'Mail', label: 'Email', value: 'info@vip-pamyatniki.ru' },
-                  { icon: 'Clock', label: 'Режим работы', value: '—' },
+                  { icon: 'Clock', label: 'Режим работы', value: 'Пн–Сб: 8:00–17:00, Вс: выходной' },
                 ].map((c) => (
                   <div key={c.label} className="flex items-start gap-4">
                     <div className="w-11 h-11 shrink-0 border border-border/60 flex items-center justify-center">
