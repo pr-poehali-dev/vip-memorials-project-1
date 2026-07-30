@@ -1,11 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Reveal, SectionTitle, HERO_IMG, TRUST, STATS, GRANITE, COMBINED, MARBLE, MILITARY, MEMORIAL_COMPLEX, STONES } from '@/components/shared';
 import ConsultModal from '@/components/ConsultModal';
 
+const CATALOG_SECTIONS = [
+  { id: 'granite', title: 'Памятники из гранита', items: GRANITE, icon: 'Mountain', fit: 'cover' },
+  { id: 'combined', title: 'Комбинированные памятники', items: COMBINED, icon: 'Layers', fit: 'cover' },
+  { id: 'marble', title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles', fit: 'cover' },
+  {
+    id: 'memorial',
+    title: 'Мемориальные комплексы',
+    items: MEMORIAL_COMPLEX,
+    icon: 'Landmark',
+    fit: 'contain',
+    desc: 'Масштабные семейные комплексы с колоннами, порталами и оградами из натурального гранита.',
+  },
+  {
+    id: 'military',
+    title: 'Военные памятники СВО',
+    items: MILITARY,
+    icon: 'Shield',
+    fit: 'contain',
+    desc: 'Индивидуальные мемориальные комплексы с бронзовыми скульптурами и цветными портретами для героев СВО.',
+  },
+];
+
 export default function HeroCatalog() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(CATALOG_SECTIONS[0].id);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: '-110px 0px -70% 0px', threshold: 0 }
+    );
+    CATALOG_SECTIONS.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <>
@@ -75,17 +118,36 @@ export default function HeroCatalog() {
             <SectionTitle kicker="Каталог продукции" title="Памятники, созданные с уважением к деталям" />
           </Reveal>
 
-          {[
-            { title: 'Памятники из гранита', items: GRANITE, icon: 'Mountain' },
-            { title: 'Комбинированные памятники', items: COMBINED, icon: 'Layers' },
-            { title: 'Памятники из мрамора', items: MARBLE, icon: 'Sparkles' },
-          ].map((cat, ci) => (
-            <div key={cat.title} className={ci > 0 ? 'mt-20' : ''}>
+          {/* Липкая навигация по разделам — мобильная версия */}
+          <div className="lg:hidden sticky top-[52px] z-30 -mx-4 px-4 py-2 mb-8 bg-background/95 backdrop-blur-md border-b border-border/50">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar">
+              {CATALOG_SECTIONS.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => scrollToSection(s.id)}
+                  className={`shrink-0 flex items-center gap-1.5 px-3.5 py-2 text-xs whitespace-nowrap border transition-colors ${
+                    activeSection === s.id
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-transparent text-muted-foreground border-border/60'
+                  }`}
+                >
+                  <Icon name={s.icon} size={14} />
+                  {s.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {CATALOG_SECTIONS.map((cat, ci) => (
+            <div key={cat.id} id={cat.id} className={`scroll-mt-28 ${ci > 0 ? 'mt-20' : ''}`}>
               <Reveal variant="left">
-                <div className="flex items-center gap-3 mb-8">
+                <div className={`flex items-center gap-3 ${cat.desc ? 'mb-2' : 'mb-8'}`}>
                   <Icon name={cat.icon} size={26} className="text-primary" />
                   <h3 className="text-2xl md:text-3xl font-display font-medium">{cat.title}</h3>
                 </div>
+                {cat.desc && (
+                  <p className="mb-8 text-sm text-muted-foreground pl-[38px]">{cat.desc}</p>
+                )}
               </Reveal>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {cat.items.map((item, i) => (
@@ -96,7 +158,9 @@ export default function HeroCatalog() {
                           src={item.img}
                           alt={`${cat.title} — ${item.title}`}
                           loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                            cat.fit === 'contain' ? 'object-contain' : 'object-cover'
+                          }`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
@@ -117,88 +181,6 @@ export default function HeroCatalog() {
               </div>
             </div>
           ))}
-
-          {/* Мемориальные комплексы */}
-          <div id="memorial" className="mt-20 scroll-mt-24">
-            <Reveal variant="left">
-              <div className="flex items-center gap-3 mb-2">
-                <Icon name="Landmark" size={26} className="text-primary" />
-                <h3 className="text-2xl md:text-3xl font-display font-medium">Мемориальные комплексы</h3>
-              </div>
-              <p className="mb-8 text-sm text-muted-foreground pl-[38px]">
-                Масштабные семейные комплексы с колоннами, порталами и оградами из натурального гранита.
-              </p>
-            </Reveal>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {MEMORIAL_COMPLEX.map((item, i) => (
-                <Reveal key={item.title} delay={i * 90} variant="scale">
-                  <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
-                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
-                      <img
-                        src={item.img}
-                        alt={`Мемориальный комплекс — ${item.title}`}
-                        loading="lazy"
-                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
-                        <h4 className="font-display text-xl text-foreground">{item.title}</h4>
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                          <div className="mt-3 text-primary font-medium">{item.price}</div>
-                          <button className="mt-4 inline-flex items-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2 transition-colors">
-                            Узнать цену
-                            <Icon name="ArrowRight" size={15} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Военные памятники СВО */}
-          <div className="mt-20">
-            <Reveal variant="left">
-              <div className="flex items-center gap-3 mb-2">
-                <Icon name="Shield" size={26} className="text-primary" />
-                <h3 className="text-2xl md:text-3xl font-display font-medium">Военные памятники СВО</h3>
-              </div>
-              <p className="mb-8 text-sm text-muted-foreground pl-[38px]">
-                Индивидуальные мемориальные комплексы с бронзовыми скульптурами и цветными портретами для героев СВО.
-              </p>
-            </Reveal>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {MILITARY.map((item, i) => (
-                <Reveal key={item.title} delay={i * 90} variant="scale">
-                  <article className="group relative h-full overflow-hidden bg-card border border-border/60 hover:border-primary/50 transition-colors duration-500">
-                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
-                      <img
-                        src={item.img}
-                        alt={`Военный памятник СВО — ${item.title}`}
-                        loading="lazy"
-                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-5 translate-y-[calc(100%-3.5rem)] group-hover:translate-y-0 transition-transform duration-500">
-                        <h4 className="font-display text-xl text-foreground">{item.title}</h4>
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                          <div className="mt-3 text-primary font-medium">{item.price}</div>
-                          <button className="mt-4 inline-flex items-center gap-2 text-sm text-foreground border border-primary/60 hover:bg-primary hover:text-primary-foreground px-4 py-2 transition-colors">
-                            Узнать цену
-                            <Icon name="ArrowRight" size={15} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

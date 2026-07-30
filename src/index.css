@@ -131,6 +131,13 @@
   .hairline {
     @apply border-t border-border/60;
   }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
   /* Плавные переходы между секциями */
   .section-fade-top {
